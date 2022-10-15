@@ -3,3 +3,42 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: "Inter", sans-serif;
+    line-height: 1.4;
+    font-weight: 500;
+    background: rgb(194, 150, 150);
+    color: #333;
+    height: 100vh;
+}
+
+.flexContainer {
+    max-width: 960px;
+    height: 60vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 30% 25%;
+}
+
+.innerBox {
+    flex: 0 1 33%;
+    border: 5px solid rgb(0, 0, 0);
+    min-height: 33.33%;
+    min-width: 13%;
+}
+
+@media screen and (max-width: 800px) {
+    .flexContainer {
+        width: 50%;
+        height: 35%;
+        align-items: center;
+    }
+    .innerBox {
+        flex: 0 1 33%;
+        width: 25%;
+        height: 25%;
+    }
+}
