@@ -20,7 +20,7 @@ body {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    margin: 30% 25%;
+    margin: 150px 450px;
 }
 
 .innerBox {
@@ -30,11 +30,12 @@ body {
     min-width: 13%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1150px) {
     .flexContainer {
         width: 50%;
-        height: 35%;
+        height: 45%;
         align-items: center;
+        margin: 100px 100px;
     }
     .innerBox {
         flex: 0 1 33%;
