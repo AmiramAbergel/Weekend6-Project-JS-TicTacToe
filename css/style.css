@@ -30,6 +30,23 @@ body {
     min-width: 13%;
 }
 
+.roundGhost-register {
+    background: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 22px;
+    border-color: yellow;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.roundGhost-register:hover {
+    background: yellow;
+    color: rgb(0, 0, 0);
+}
+
 @media screen and (max-width: 1150px) {
     .flexContainer {
         width: 50%;
