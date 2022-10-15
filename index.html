@@ -9,8 +9,8 @@
     </head>
     <body>
         <header>
-            <h1>Tic Tac Toe</h1>
-            <p>
+            <h1 class="name">Tic Tac Toe</h1>
+            <p class="description">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae
                 minus nobis error? Eum tenetur similique ex dolorum,
                 exercitationem eius aspernatur error praesentium corrupti itaque
@@ -26,20 +26,24 @@
                 magni perferendis. Ipsum, quisquam ipsam. Laboriosam aliquam
                 provident magnam!
             </p>
-            <button class="roundGhost-register">Play Now!</button>
-            <button class="roundGhost-register">Play Again...</button>
+            <div class="buttons">
+                <button class="playButton roundGhost">Play Now!</button>
+                <button class="resetButton roundGhost">Play Again...</button>
+            </div>
         </header>
 
         <div class="flexContainer">
-            <div class="innerBox"></div>
-            <div class="innerBox"></div>
-            <div class="innerBox"></div>
-            <div class="innerBox"></div>
-            <div class="innerBox"></div>
-            <div class="innerBox"></div>
-            <div class="innerBox"></div>
-            <div class="innerBox"></div>
-            <div class="innerBox"></div>
+            <div class="board">
+                <div class="innerBox" id="01"></div>
+                <div class="innerBox" id="02"></div>
+                <div class="innerBox" id="03"></div>
+                <div class="innerBox" id="11"></div>
+                <div class="innerBox" id="12"></div>
+                <div class="innerBox" id="13"></div>
+                <div class="innerBox" id="21"></div>
+                <div class="innerBox" id="22"></div>
+                <div class="innerBox" id="23"></div>
+            </div>
         </div>
         <script src="app.js"></script>
     </body>

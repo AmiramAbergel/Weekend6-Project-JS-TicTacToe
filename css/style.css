@@ -5,22 +5,39 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.4;
     font-weight: 500;
-    background: rgb(194, 150, 150);
+    background: linear-gradient(
+        135deg,
+        hsla(217, 100%, 50%, 1) 0%,
+        hsla(186, 100%, 69%, 1) 87%
+    );
     color: #333;
-    height: 100vh;
+}
+
+.name {
+    text-align: center;
+}
+
+.description {
+    text-align: center;
+    margin: 50px 100px;
 }
 
 .flexContainer {
-    max-width: 960px;
-    height: 60vh;
+    padding: 40px;
+    height: 100vh;
     display: flex;
-    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    margin: 150px 450px;
+}
+
+.board {
+    display: flex;
+    flex-flow: row wrap;
+    width: 550px;
+    height: 550px;
 }
 
 .innerBox {
@@ -28,9 +45,17 @@ body {
     border: 5px solid rgb(0, 0, 0);
     min-height: 33.33%;
     min-width: 13%;
+    font-size: 8rem;
+    text-align: center;
 }
 
-.roundGhost-register {
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.roundGhost {
     background: none;
     color: white;
     font-size: 30px;
@@ -42,21 +67,10 @@ body {
     cursor: pointer;
 }
 
-.roundGhost-register:hover {
+.roundGhost:hover {
     background: yellow;
     color: rgb(0, 0, 0);
 }
 
 @media screen and (max-width: 1150px) {
-    .flexContainer {
-        width: 50%;
-        height: 45%;
-        align-items: center;
-        margin: 100px 100px;
-    }
-    .innerBox {
-        flex: 0 1 33%;
-        width: 25%;
-        height: 25%;
-    }
 }
