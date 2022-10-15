@@ -1,21 +1,33 @@
 const innerBoxes = document.querySelectorAll(".innerBox");
+const resetButton = document.querySelector(".resetButton");
+const gameStatus = document.querySelector(".gameStatus");
 const numOfBoxes = innerBoxes.length;
-const O_symbol = "O";
-const X_symbol = "X";
-const homePlayer = X_symbol;
-const awayPlayer = O_symbol;
+
+const homePlayer = {
+    name: "Home-Player",
+    symbol: "X",
+};
+
+const awayPlayer = {
+    name: "Away-Player",
+    symbol: "O",
+};
 
 let currentPlayer = homePlayer;
 const gameBoard = new Array(numOfBoxes).fill(null);
+
 const boxTrigger = (event, index) => {
+    let currentPlayerName = currentPlayer.name;
+    let currentPlayerSymbol = currentPlayer.symbol;
     const input = event.target;
     const boxID = input.id;
     if (!gameBoard[boxID]) {
-        input.textContent = currentPlayer;
-        gameBoard[boxID] = currentPlayer;
+        input.textContent = currentPlayerSymbol;
+        gameBoard[boxID] = currentPlayerSymbol;
         if (moves()) {
-            endGame();
+            endGame(currentPlayerName);
         }
+        tieGame(gameBoard);
         if (currentPlayer === homePlayer) {
             currentPlayer = awayPlayer;
         } else {
@@ -48,8 +60,29 @@ const moves = () => {
     return false;
 };
 
-const endGame = () => {
-    console.log("win");
+const endGame = (player) => {
+    gameStatus.textContent = `The Winner is ${player}`;
+    innerBoxes.forEach((box) => box.removeEventListener("click", boxTrigger));
+};
+
+const tieGame = (arr) => {
+    if (
+        arr.some((element) => {
+            element !== null;
+        })
+    ) {
+        gameStatus.textContent = "Tie!!!";
+    }
+};
+
+const handleReset = () => {
+    currentPlayer = homePlayer;
+    gameBoard.fill(null);
+    innerBoxes.forEach((box) => {
+        box.textContent = "";
+    });
+    innerBoxes.forEach((box) => box.addEventListener("click", boxTrigger));
 };
 
 innerBoxes.forEach((box) => box.addEventListener("click", boxTrigger));
+resetButton.addEventListener("click", handleReset);
