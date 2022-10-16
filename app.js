@@ -3,6 +3,8 @@ const resetButton = document.querySelector(".resetButton");
 const gameStatus = document.querySelector(".gameStatus");
 const numOfBoxes = innerBoxes.length;
 
+const game = [{}];
+
 const homePlayer = {
     name: "Home-Player",
     symbol: "X",
@@ -67,8 +69,8 @@ const endGame = (player) => {
 
 const tieGame = (arr) => {
     if (
-        arr.some((element) => {
-            element !== null;
+        !arr.some((element) => {
+            element === null;
         })
     ) {
         gameStatus.textContent = "Tie!!!";
