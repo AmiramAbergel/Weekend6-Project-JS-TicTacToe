@@ -29,7 +29,9 @@ const boxTrigger = (event, index) => {
         if (moves()) {
             endGame(currentPlayerName);
         }
-        tieGame(gameBoard);
+        if (!gameBoard.includes(null)) {
+            gameStatus.textContent = "Tie!!!";
+        }
         if (currentPlayer === homePlayer) {
             currentPlayer = awayPlayer;
         } else {
@@ -69,8 +71,8 @@ const endGame = (player) => {
 
 const tieGame = (arr) => {
     if (
-        !arr.some((element) => {
-            element === null;
+        arr.every((element) => {
+            element !== null;
         })
     ) {
         gameStatus.textContent = "Tie!!!";
