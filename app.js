@@ -27,8 +27,9 @@ const boxTrigger = (event) => {
         gameBoard[boxID] = currentPlayerSymbol;
         if (moves()) {
             endGame(currentPlayerName);
+        } else {
+            checkTie(gameBoard);
         }
-        checkTie(gameBoard);
         if (currentPlayer === homePlayer) {
             currentPlayer = awayPlayer;
         } else {
