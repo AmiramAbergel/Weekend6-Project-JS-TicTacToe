@@ -3,8 +3,6 @@ const resetButton = document.querySelector(".resetButton");
 const gameStatus = document.querySelector(".gameStatus");
 const numOfBoxes = innerBoxes.length;
 
-const game = [{}];
-
 const homePlayer = {
     name: "Home-Player",
     symbol: "X",
@@ -18,7 +16,8 @@ const awayPlayer = {
 let currentPlayer = homePlayer;
 const gameBoard = new Array(numOfBoxes).fill(null);
 
-const boxTrigger = (event, index) => {
+const boxTrigger = (event) => {
+    resetButton.style.visibility = "visible";
     let currentPlayerName = currentPlayer.name;
     let currentPlayerSymbol = currentPlayer.symbol;
     const input = event.target;
@@ -29,9 +28,7 @@ const boxTrigger = (event, index) => {
         if (moves()) {
             endGame(currentPlayerName);
         }
-        if (!gameBoard.includes(null)) {
-            gameStatus.textContent = "Tie!!!";
-        }
+        checkTie(gameBoard);
         if (currentPlayer === homePlayer) {
             currentPlayer = awayPlayer;
         } else {
@@ -69,17 +66,15 @@ const endGame = (player) => {
     innerBoxes.forEach((box) => box.removeEventListener("click", boxTrigger));
 };
 
-const tieGame = (arr) => {
-    if (
-        arr.every((element) => {
-            element !== null;
-        })
-    ) {
+const checkTie = (arr) => {
+    if (!arr.includes(null)) {
         gameStatus.textContent = "Tie!!!";
     }
 };
 
 const handleReset = () => {
+    resetButton.style.visibility = "hidden";
+    gameStatus.textContent = "";
     currentPlayer = homePlayer;
     gameBoard.fill(null);
     innerBoxes.forEach((box) => {

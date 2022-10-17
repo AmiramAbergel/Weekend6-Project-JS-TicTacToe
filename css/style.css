@@ -11,9 +11,21 @@ body {
     background: linear-gradient(
         135deg,
         hsla(217, 100%, 50%, 1) 0%,
-        hsla(186, 100%, 69%, 1) 87%
+        rgb(97, 239, 255) 87%
     );
     color: #333;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+img {
+    border: 0.5rem solid rgb(62 189 255 / 22%);
+    border-radius: 12rem;
+    max-height: 50.33%;
+    max-width: 50%;
 }
 
 .name {
@@ -23,6 +35,8 @@ body {
 .description {
     text-align: center;
     margin: 50px 100px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .flexContainer {
@@ -30,7 +44,6 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .board {
@@ -56,6 +69,7 @@ body {
 }
 
 .roundGhost {
+    visibility: hidden;
     background: none;
     color: white;
     font-size: 30px;
